@@ -9,12 +9,12 @@ This is an implementation of the paper [Simple, Fast, and Practical Non-Blocking
     *   `queues/non_blocking_queue.h` (non blocking queue mentioned in paper Figure 1)
 
 *   Driver programs to evaluate the correctness and performance of queue implementations.
-*   `driver_correctness.cpp` - In this driver program, producers repeatedly enqueue elements from an input file into the queue and consumers repeatedly dequeue elements from the queue. The driver program then validates whether the enqueued and dequeued elements are correct. It supports the following command-line parameters:
+    *   `driver_correctness.cpp` - In this driver program, producers repeatedly enqueue elements from an input file into the queue and consumers repeatedly dequeue elements from the queue. The driver program then validates whether the enqueued and dequeued elements are correct. It supports the following command-line parameters:
     
-    *   `--n_producers`: Number of producer threads that will enqueue to the queue.
-    *   `--n_consumers`: Number of consumer threads that will dequeue from the queue.
-    *   `--input_file`: Absolute path of the input file that contains the elements to be inserted.
-    *   `--init_allocator`: Initial number of elements to be pre-allocated. We will rely on pre-allocation to eliminate the effects of allocation/deallocation on throughput numbers (more on this in next point).
+        *   `--n_producers`: Number of producer threads that will enqueue to the queue.
+        *   `--n_consumers`: Number of consumer threads that will dequeue from the queue.
+        *   `--input_file`: Absolute path of the input file that contains the elements to be inserted.
+        *   `--init_allocator`: Initial number of elements to be pre-allocated. We will rely on pre-allocation to eliminate the effects of allocation/deallocation on throughput numbers (more on this in next point).
     
     For example, to test correctness of `one_lock_queue` with 2 producers and 2 consumers, run:
     
@@ -22,12 +22,12 @@ This is an implementation of the paper [Simple, Fast, and Practical Non-Blocking
         $ ./one_lock_queue_correctness --n_producers 2 --n_consumers 2 --input_file /inputs/rand_10M
         
     
-*   `driver_throughput.cpp` - In this driver program, producers repeatedly enqueue elements in the queue and consumers repeatedly dequeue elements from the queue for a specified period of time. The number of operations performed by the workers is used to measure throughput of the queue. It supports the following command-line parameters:
+    *   `driver_throughput.cpp` - In this driver program, producers repeatedly enqueue elements in the queue and consumers repeatedly dequeue elements from the queue for a specified period of time. The number of operations performed by the workers is used to measure throughput of the queue. It supports the following command-line parameters:
     
-    *   `--seconds`: Number of seconds the producer and consumer should run.
-    *   `--n_producers`: Number of producer threads that will enqueue to the queue.
-    *   `--n_consumers`: Number of consumer threads that will dequeue from the queue.
-    *   `--init_allocator`: Initial number of elements to be pre-allocated. We will rely on pre-allocation to eliminate the effects of allocation/deallocation on throughput numbers (more on this in next point).
+        *   `--seconds`: Number of seconds the producer and consumer should run.
+        *   `--n_producers`: Number of producer threads that will enqueue to the queue.
+        *   `--n_consumers`: Number of consumer threads that will dequeue from the queue.
+        *   `--init_allocator`: Initial number of elements to be pre-allocated. We will rely on pre-allocation to eliminate the effects of allocation/deallocation on throughput numbers (more on this in next point).
     
     For example, to measure the throughput of `non_blocking_queue` with 2 producers and 2 consumers for 5 seconds, run:
     
